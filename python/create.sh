@@ -295,8 +295,35 @@ echo "$context_content" > "$path"
 echo "Utworzono plik $path"
 
 
+mkdir -p "$directory_path/tests/functional_tests"
+
+init_content='import os
+import sys
+# Dodanie katalogu projektu do ścieżek testów 
+# NIE ZMIENIAĆ
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../app")))'
+
+path="$directory_path/tests/functional_tests/__init__.py"
+
+echo "$init_content" > "$path"
+
+# Informacja o zakończeniu
+echo "Utworzono plik $path"
+
+
+mkdir -p "$directory_path/tests/unit_tests"
+
+path="$directory_path/tests/unit_tests/__init__.py"
+
+echo "$init_content" > "$path"
+
+# Informacja o zakończeniu
+echo "Utworzono plik $path"
+
+
 gitignore_content='# Byte-compiled / optimized / DLL files
 __pycache__/
+.pytest_cache
 
 # Sphinx documentation
 docs/*
