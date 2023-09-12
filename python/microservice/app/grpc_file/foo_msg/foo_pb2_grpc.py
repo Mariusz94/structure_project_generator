@@ -25,13 +25,13 @@ class FooServiceStub(object):
                 request_serializer=foo__msg_dot_foo__pb2.FooRequest.SerializeToString,
                 response_deserializer=default__msg_dot_default__pb2.Empty.FromString,
                 )
-        self.FooMethodSendFile = channel.unary_stream(
-                '/FooService/FooMethodSendFile',
+        self.FooMethodDownloadFile = channel.unary_stream(
+                '/FooService/FooMethodDownloadFile',
                 request_serializer=foo__msg_dot_foo__pb2.FooFileInfo.SerializeToString,
                 response_deserializer=foo__msg_dot_foo__pb2.FooFile.FromString,
                 )
-        self.FooMethodReceiveFile = channel.stream_unary(
-                '/FooService/FooMethodReceiveFile',
+        self.FooMethodUploadFile = channel.stream_unary(
+                '/FooService/FooMethodUploadFile',
                 request_serializer=foo__msg_dot_foo__pb2.FooFile.SerializeToString,
                 response_deserializer=foo__msg_dot_foo__pb2.FooStatus.FromString,
                 )
@@ -52,13 +52,13 @@ class FooServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def FooMethodSendFile(self, request, context):
+    def FooMethodDownloadFile(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def FooMethodReceiveFile(self, request_iterator, context):
+    def FooMethodUploadFile(self, request_iterator, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -77,13 +77,13 @@ def add_FooServiceServicer_to_server(servicer, server):
                     request_deserializer=foo__msg_dot_foo__pb2.FooRequest.FromString,
                     response_serializer=default__msg_dot_default__pb2.Empty.SerializeToString,
             ),
-            'FooMethodSendFile': grpc.unary_stream_rpc_method_handler(
-                    servicer.FooMethodSendFile,
+            'FooMethodDownloadFile': grpc.unary_stream_rpc_method_handler(
+                    servicer.FooMethodDownloadFile,
                     request_deserializer=foo__msg_dot_foo__pb2.FooFileInfo.FromString,
                     response_serializer=foo__msg_dot_foo__pb2.FooFile.SerializeToString,
             ),
-            'FooMethodReceiveFile': grpc.stream_unary_rpc_method_handler(
-                    servicer.FooMethodReceiveFile,
+            'FooMethodUploadFile': grpc.stream_unary_rpc_method_handler(
+                    servicer.FooMethodUploadFile,
                     request_deserializer=foo__msg_dot_foo__pb2.FooFile.FromString,
                     response_serializer=foo__msg_dot_foo__pb2.FooStatus.SerializeToString,
             ),
@@ -132,7 +132,7 @@ class FooService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def FooMethodSendFile(request,
+    def FooMethodDownloadFile(request,
             target,
             options=(),
             channel_credentials=None,
@@ -142,14 +142,14 @@ class FooService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_stream(request, target, '/FooService/FooMethodSendFile',
+        return grpc.experimental.unary_stream(request, target, '/FooService/FooMethodDownloadFile',
             foo__msg_dot_foo__pb2.FooFileInfo.SerializeToString,
             foo__msg_dot_foo__pb2.FooFile.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def FooMethodReceiveFile(request_iterator,
+    def FooMethodUploadFile(request_iterator,
             target,
             options=(),
             channel_credentials=None,
@@ -159,7 +159,7 @@ class FooService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.stream_unary(request_iterator, target, '/FooService/FooMethodReceiveFile',
+        return grpc.experimental.stream_unary(request_iterator, target, '/FooService/FooMethodUploadFile',
             foo__msg_dot_foo__pb2.FooFile.SerializeToString,
             foo__msg_dot_foo__pb2.FooStatus.FromString,
             options, channel_credentials,

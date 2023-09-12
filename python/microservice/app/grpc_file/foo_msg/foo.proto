@@ -4,8 +4,8 @@ import "default_msg/default.proto";
 service FooService {
     rpc FooMethod1(FooRequest) returns (FooResponse);
     rpc FooMethod2(FooRequest) returns (Empty);
-    rpc FooMethodSendFile(FooFileInfo) returns (stream FooFile) {}
-    rpc FooMethodReceiveFile(stream FooFile) returns (FooStatus) {}
+    rpc FooMethodDownloadFile(FooFileInfo) returns (stream FooFile) {}
+    rpc FooMethodUploadFile(stream FooFile) returns (FooStatus) {}
 }
 
 message FooRequest {
