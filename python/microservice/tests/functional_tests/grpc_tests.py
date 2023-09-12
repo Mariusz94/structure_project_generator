@@ -5,8 +5,6 @@ import grpc
 import pytest
 import service.connectors.foo_service as foo_service
 
-# sys.path.append(r"./../grpc_file")
-print(sys.path)
 from default_msg import default_pb2
 from foo_msg import foo_pb2
 

@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import os,sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../app')))
-sys.path.append(r'../app/grpcfile')
+sys.path.append(r'../app/grpc_file')
 
 project = 'python'
 copyright = '2023, Dream team'
@@ -36,3 +36,4 @@ latex_elements = {
     ''' # 1 kolumna w index
 }
 
+latex_documents = [('index', 'doc.tex', project, author, 'manual')]

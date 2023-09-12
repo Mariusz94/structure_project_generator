@@ -151,7 +151,7 @@ def foo_method_download_file(foo_file_name: str = "sample_name.jpg") -> tuple:
 
 def foo_method_upload_file(
     foo_file: bytes,
-    foo_file_name: str = " sample_name.jpg",
+    foo_file_name: str = "sample_name.jpg",
 ) -> dict:
     """
     Sample 'foo_method_upload_file'.

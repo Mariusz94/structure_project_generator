@@ -4,9 +4,13 @@ git_config:
 	git config user.email "lyszczarz.mariusz@gmail.com"
 
 # Create virtual environment
-make_venv:
+create_venv:
 	python3.8 -m venv venv
-	source ./venv/bin/activate && pip install -r ./app/requirements.txt && pip install pytest
+	source ./venv/bin/activate && \
+	pip install -r ./app/requirements.txt && \
+	pip install pytest && \
+	pip install -U sphinx && \
+	pip install sphinx-rtd-theme
 
 
 # Make docs with Sphinx
@@ -14,7 +18,7 @@ doc:
 	make -C ./docs doc
 
 # Make tests
-tests:
+test:
 	pytest -s -vv tests/functional_tests/grpc_tests.py
 
 # Method to remove folders
