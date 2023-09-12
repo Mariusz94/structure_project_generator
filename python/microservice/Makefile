@@ -41,6 +41,7 @@ clone_structure_project_generator:
 proto_generate:
 	@ECHO ---------------- Generate proto files ----------------
 	make gen_spec_proto PROTO_FILE=./structure_project_generator/grpc MESSAGE_NAME=default_msg/default.proto
+	make gen_spec_proto PROTO_FILE=./structure_project_generator/grpc MESSAGE_NAME=foo_msg/foo.proto
 
 # Method to generate specific proto message
 # Usage: make gen_spec_proto PROTO_FILE=./structure_project_generator/grpc MESSAGE_NAME=default_msg/default.proto
