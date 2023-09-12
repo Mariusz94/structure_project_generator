@@ -14,8 +14,6 @@ endif
 
 # Generate microservice structure
 gen_ms:
-# git clone --branch main https://github.com/Mariusz94/structure_project_generator.git
-	git clone --branch dev https://github.com/Mariusz94/structure_project_generator.git
-	mkdir ala
-	cp -a ./structure_project_generator/python/microservice/. ./ala/.
+	git clone --branch main https://github.com/Mariusz94/structure_project_generator.git
+	cp -a ./structure_project_generator/python/microservice/. ./.
 	make rm DIR=structure_project_generator
