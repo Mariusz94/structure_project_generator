@@ -13,6 +13,10 @@ make_venv:
 doc:
 	make -C ./docs doc
 
+# Make tests
+tests:
+	pytest -s -vv tests/functional_tests/grpc_tests.py
+
 # Method to remove folders
 # Usage: make rm DIR=ec-files-proto
 rm:
@@ -51,6 +55,6 @@ gen_spec_proto:
 	python -m grpc_tools.protoc -I$(PROTO_FILE) --python_out=./app/grpc_file --pyi_out=./app/grpc_file --grpc_python_out=./app/grpc_file $(PROTO_FILE)/$(MESSAGE_NAME)
 	cp $(PROTO_FILE)/$(MESSAGE_NAME) ./app/grpc_file/$(MESSAGE_NAME)
 	
-	python -m grpc_tools.protoc -I$(PROTO_FILE) --python_out=./tests/grpc_file --pyi_out=./tests/grpc_file --grpc_python_out=./tests/grpc_file $(PROTO_FILE)/$(MESSAGE_NAME)
-	cp $(PROTO_FILE)/$(MESSAGE_NAME) ./tests/grpc_file/$(MESSAGE_NAME)
+	python -m grpc_tools.protoc -I$(PROTO_FILE) --python_out=./tests/ --pyi_out=./tests/ --grpc_python_out=./tests/ $(PROTO_FILE)/$(MESSAGE_NAME)
+	cp $(PROTO_FILE)/$(MESSAGE_NAME) ./tests/$(MESSAGE_NAME)
 

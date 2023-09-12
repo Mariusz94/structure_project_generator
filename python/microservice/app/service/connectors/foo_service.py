@@ -1,14 +1,15 @@
 import sys
-import grpc
-import config
 from typing import List, Tuple
-from grpc import Channel
+
+import config
+import grpc
 from google.protobuf.json_format import MessageToDict
+from grpc import Channel
 
 sys.path.append(r"./grpc_file")
 
-from grpc_file.foo_msg import foo_pb2, foo_pb2_grpc
 from grpc_file.default_msg import default_pb2
+from grpc_file.foo_msg import foo_pb2, foo_pb2_grpc
 
 
 def _prepare_client() -> Tuple[foo_pb2_grpc.FooServiceStub, Channel]:

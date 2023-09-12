@@ -116,7 +116,7 @@ class FooService:
 
             with open(file_path, "rb") as image:
                 f = image.read()
-                image_byte = bytearray(f)
+                image_byte = bytes(f)
 
             response = foo_pb2.FooFile(
                 foo_file_name=foo_file_name,
@@ -124,7 +124,7 @@ class FooService:
             )
 
             logging.info("Finished method: 'FooMethodDownloadFile'")
-            return response
+            yield response
 
         except Exception as e:
             logging.exception(
