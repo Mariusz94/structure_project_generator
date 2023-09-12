@@ -8,3 +8,5 @@ docs/*
 !/docs/index.rst
 !/docs/Makefile
 
+venv
+

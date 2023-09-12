@@ -12,7 +12,7 @@ else
 	rm -rf $(DIR)
 endif
 
-# 
+# Generate microservice structure
 gen_ms:
 # git clone --branch main https://github.com/Mariusz94/structure_project_generator.git
 	git clone --branch dev https://github.com/Mariusz94/structure_project_generator.git
