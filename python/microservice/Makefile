@@ -30,6 +30,7 @@ endif
 # Generate proto messages
 gen_proto: clone_structure_project_generator proto_generate
 	make rm DIR=structure_project_generator
+	@ECHO Generating proto message ended with SUCCESS
 
 # Cloning repository 'structure_project_generator'
 clone_structure_project_generator:
