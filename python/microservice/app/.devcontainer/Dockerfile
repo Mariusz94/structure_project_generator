@@ -3,7 +3,12 @@ FROM python:$VARIANT
 
 RUN apt update
 RUN apt install make
+
+RUN apt update && apt install tzdata -y
+ENV TZ="Europe/Warsaw"
+
 RUN apt-get -y install git
+
 RUN apt-get -y install texlive
 RUN apt-get install -y latexmk
 RUN apt-get install -y texlive-latex-extra
